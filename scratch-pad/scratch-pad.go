@@ -4,6 +4,7 @@ import (
 	"crypto/sha1"
 	"database/sql"
 	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"log"
 	"strings"
@@ -59,4 +60,20 @@ func getTimeStamp(t time.Time) string {
 	dTS := tD + tT
 	fmt.Println(dTS)
 	return dTS
+}
+
+func testJSON() {
+	type myUser struct {
+		Name string
+		Age  int
+		Dob  string
+	}
+	p := myUser{}
+	m := myUser{}
+	p.Name = "hello"
+	p.Age = 123
+	p.Dob = "123"
+	b, _ := json.Marshal(p)
+	json.Unmarshal(b, &m)
+	fmt.Println(m)
 }
