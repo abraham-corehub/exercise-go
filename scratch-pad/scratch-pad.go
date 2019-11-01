@@ -14,12 +14,12 @@ import (
 )
 
 func main() {
-	hashTest("admin")
-	hashTest("abey")
+	testHash("admin")
+	testHash("abey")
 	getTimeStamp(time.Now())
 }
 
-func hashTest(str string) []byte {
+func testHash(str string) []byte {
 	pW := str
 	pWH := sha1.New()
 	pWH.Write([]byte(pW))
